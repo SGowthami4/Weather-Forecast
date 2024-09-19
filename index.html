@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Forecast App</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
+    />
+  </head>
+  <body>
+    <main class="container">
+      <input
+        type="search"
+        placeholder="Enter city name"
+        name="cityname"
+        id="search"
+        class="searchbox"
+        list="cities"
+      />
+      <datalist id="cities"></datalist>
+      <article id="current-forecast">
+        />
+        <!-- <section class="city-name" id="city-name">
+                <i class="uil uil-map-marker" style="font-size: 20px;padding: 0 1vmin;" id="location-icon"></i>
+                <h3 class="heading"></h3>
+            </section> -->
+        <!-- <img src="" alt="">
+            <p class="temp">Temp</p>
+            <p class="description">Description</p>
+            <pre class="min-max-temp">Min:                 Max:</pre> -->
+      </article>
+      <article id="hourly-forecast">
+        <section class="today">
+          <h3>Today</h3>
+          <p class="date">Date</p>
+        </section>
+        <section class="hourly-forecast-container">
+          <!-- <article>
+                    <h2>Now</h2>
+                    <p>icon</p>
+                    <img src="" alt="">icon
+                    <p>temp</p>
+                </article>
+                <article>
+                    <h2>today</h2>
+                    <p>icon</p>
+                    <p>low</p>
+                    <p>high</p>
+                </article>
+                <article>
+                    <h2>today</h2>
+                    <p>icon</p>
+                    <p>low</p>
+                    <p>high</p>
+                </article>
+                <article>
+                    <h2>today</h2>
+                    <p>icon</p>
+                    <p>low</p>
+                    <p>high</p>
+                </article>
+                <article>
+                    <h2>today</h2>
+                    <p>icon</p>
+                    <p>low</p>
+                    <p>high</p>
+                </article> -->
+        </section>
+      </article>
+      <article id="five-day-forecast">
+        <section class="five-day-section">
+          <h1>6-Day Forecast</h1>
+          <!-- <input type="date" id="calender" style="width: 3vmin;height: 3vmin;color: white;"> -->
+        </section>
+        <section class="five-day-forecast-container">
+          <article class="day-wise-forecast">
+            <h3>Tue</h3>
+            <img src="" alt="" class="icon" />
+            <p class="min-temp">low</p>
+            <p class="max-temp">high</p>
+          </article>
+          <article class="day-wise-forecast">
+            <h3>Wed</h3>
+            <img src="" alt="" class="icon" />
+            <p class="min-temp">low</p>
+            <p class="max-temp">high</p>
+          </article>
+          <article class="day-wise-forecast">
+            <h3>Thu</h3>
+            <img src="" alt="" class="icon" />
+            <p class="min-temp">low</p>
+            <p class="max-temp">high</p>
+          </article>
+        </section>
+      </article>
+      <article id="feels-like">
+        <h2>Feels like</h2>
+        <p class="temp">temp</p>
+      </article>
+      <article id="humidity">
+        <h2>Humidity</h2>
+        <p class="humidity">value</p>
+      </article>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>

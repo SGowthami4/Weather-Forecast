@@ -1,0 +1,298 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.icon {
+  height: 8vmin;
+  width: 8vmin;
+  object-fit: contain;
+}
+#location-icon {
+  font-size: 3vmin;
+  padding-right: 0.4vmin;
+}
+/* mobile first approach */
+.container {
+  color: white;
+  background: linear-gradient(to top, rgb(5, 5, 175) 65%, rgb(3, 3, 82) 98%);
+  width: 50vmin;
+  margin: 5vmin auto;
+  border: 1vmin solid;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+    "search search"
+    "current current"
+    "hourly hourly"
+    "fiveday fiveday"
+    "feelslike humidity";
+  gap: 0.5vmin;
+  padding: 1vmin;
+  border-radius: 5vmin;
+}
+
+#search {
+  grid-area: search;
+  color: white;
+  font-size: 2vmin;
+  padding: 1vmin;
+  border-radius: 5vmin;
+  margin: 0.5vmin;
+  border: 1px solid lightgrey;
+  background-color: rgba(107, 107, 242, 0.1);
+}
+
+#current-forecast {
+  text-align: center;
+  grid-area: current;
+  display: grid;
+  gap: 0.5vmin;
+  .icon {
+    height: 12vmin;
+    width: 12vmin;
+  }
+}
+.fa-location-dot {
+  color: white;
+}
+
+#current-forecast > section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3vmin;
+  padding: 0.1vmin;
+}
+#current-forecast .description {
+  text-transform: capitalize;
+  font-size: 2.5vmin;
+  font-weight: 500;
+}
+#current-forecast {
+  text-shadow: 1.5px 1.5px 0.5px black;
+  position: relative;
+  display: inline;
+  z-index: 1;
+}
+#current-forecast::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  filter: blur(1vmin);
+  z-index: -1;
+  opacity: 0.8;
+  background-image: url("weather.png");
+  background-size: cover;
+}
+
+#current-forecast .min-max-temp {
+  font-size: 2.5vmin;
+  font-weight: bold;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+#current-forecast .temp {
+  font-size: 5vmin;
+}
+#current-forecast .description-container {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+}
+/* styles related to hourly forcast */
+#hourly-forecast {
+  grid-area: hourly;
+  text-align: center;
+  font-size: 2vmin;
+  /* font-weight:500 ;  */
+}
+#hourly-forecast > .today {
+  display: flex;
+  justify-content: space-between;
+  font-size: 2.5vmin;
+}
+.time {
+  font-size: 2.5vmin;
+  font-weight: 600;
+}
+.date {
+  font-size: 2.5vmin;
+  font-weight: 600;
+}
+.hourly-temp {
+  font-size: 2.5vmin;
+  font-weight: 600;
+}
+.hourly-forecast-container > article:hover {
+  padding: 1vmin;
+  border-radius: 7vmin;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+#hourly-forecast .hourly-forecast-container {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(auto-fill, minmax(10vmin, 1fr));
+  grid-auto-columns: minmax(10vmin, 1fr);
+  overflow-x: auto;
+  margin-top: 1vmin;
+  scrollbar-width: none;
+}
+
+#hourly-forecast {
+  margin: 1vmin;
+}
+.container #hourly-forecast {
+  border: none;
+  background-color: rgb(9, 9, 118);
+  border-radius: 1vmin;
+  padding: 2vmin;
+}
+
+.hour-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* styles for 5-day forecast */
+#five-day-forecast {
+  grid-area: fiveday;
+  background-color: rgb(9, 9, 118);
+  padding: 2vmin;
+  border-radius: 2vmin;
+  margin: 0 1vmin 1vmin;
+  font-size: 2.3vmin;
+  font-weight: 500;
+}
+.five-day-forecast-container > article:hover {
+  border-radius: 10vmin;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+#five-day-forecast > .five-day-section {
+  display: flex;
+  justify-content: space-between;
+}
+#five-day-forecast .day-wise-forecast .day {
+  text-transform: capitalize;
+}
+#five-day-forecast .day-wise-forecast {
+  display: grid;
+  grid-template: auto/repeat(4, 1fr);
+  gap: 1vmin;
+  place-content: center;
+  place-items: center;
+}
+
+#five-day-forecast .day-wise-forecast .min-temp {
+  opacity: 0.5;
+}
+#five-day-forecast .day-wise-forecast .min-temp,
+#five-day-forecast .day-wise-forecast .max-temp {
+  font-weight: 600;
+}
+#feels-like {
+  grid-area: feelslike;
+  background-color: rgb(9, 9, 118);
+}
+#humidity {
+  grid-area: humidity;
+  background-color: rgb(9, 9, 118);
+}
+#feels-like,
+#humidity {
+  display: grid;
+  place-items: center;
+  border-radius: 7vmin;
+  /* gap: .1vmin; */
+  font-size: 2vmin;
+  font-weight: 600;
+}
+@media (width>=650px) {
+  body {
+    display: grid;
+    place-content: center;
+  }
+  .container {
+    margin: 1vmin;
+    width: unset;
+    max-width: 80vmin;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+      "search search search search"
+      "current current current current"
+      "hourly hourly fiveday fiveday"
+      "feelslike humidity fiveday fiveday";
+  }
+
+  #hourly-forecast .hourly-forecast-container {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(auto-fill, minmax(12vmin, 1fr));
+    grid-auto-columns: minmax(12vmin, 1fr);
+    overflow-x: auto;
+    margin-top: 4vmin;
+    scrollbar-width: none;
+    font-size: 2.5vmin;
+  }
+  #hourly-forecast > .today {
+    display: flex;
+    justify-content: space-between;
+    font-size: 2.5vmin;
+  }
+  .icon {
+    height: 8vmin;
+    width: 8vmin;
+    object-fit: contain;
+  }
+  #feels-like,
+  #humidity {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5vmin;
+    border-radius: 3vmin;
+    margin-bottom: 1vmin;
+  }
+  #five-day-forecast {
+    font-size: 2.1vmin;
+    margin-top: 1vmin;
+  }
+  .five-day-forecast-container > article:hover {
+    border: none;
+    border-radius: 3vmin;
+  }
+  #search {
+    font-size: 3vmin;
+  }
+  #current-forecast .description .min-max-temp {
+    font-size: 3vmin;
+  }
+  #current-forecast {
+    position: relative;
+    display: inline;
+    z-index: 1;
+  }
+  #current-forecast::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    filter: blur(1vmin);
+    z-index: -1;
+    opacity: 0.8;
+    background-image: url("weather.png");
+    background-size: 70vmin 50vmin;
+  }
+}
