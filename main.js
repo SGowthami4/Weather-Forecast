@@ -19,7 +19,7 @@ const ENDPOINTS = {
   CURRENT_FORECAST_CORD: "https://api.openweathermap.org/data/2.5/weather",
   CURRENT_FORECAST: "https://api.openweathermap.org/data/2.5/weather",
   FIVE_DAY_FORECAST: "https://api.openweathermap.org/data/2.5/forecast",
-  GEOLOCATION: "http://api.openweathermap.org/geo/1.0/direct"
+  GEOLOCATION: "https://api.openweathermap.org/geo/1.0/direct"
 };
 
 const getDay = (dateValue) => DAY_OF_THE_WEEK[new Date(dateValue).getDay()];
@@ -217,9 +217,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const getGeolocationInfo = async (cityName) => {
-    const response = await fetch(
-      `${ENDPOINTS.GEOLOCATION}?q=${cityName}&limit=5&appid=${API_KEY}`
-    );
+    const response = await fetch(`${ENDPOINTS.GEOLOCATION}?q=${cityName}&limit=5&appid=${API_KEY}`);
     return response.json();
   };
 
@@ -275,10 +273,10 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       () => {
         alert("Unable to fetch location");
-        loadData();
+        loadData({});
       }
     );
   };
   loadDataUsingGeolocation();
-  getGeolocationInfo("chittoor");
+  // getGeolocationInfo("chittoor");
 });
