@@ -13,13 +13,13 @@ const months = [
   "Sep",
   "Oct",
   "Nov",
-  "Dec",
+  "Dec"
 ];
 const ENDPOINTS = {
   CURRENT_FORECAST_CORD: "https://api.openweathermap.org/data/2.5/weather",
   CURRENT_FORECAST: "https://api.openweathermap.org/data/2.5/weather",
   FIVE_DAY_FORECAST: "https://api.openweathermap.org/data/2.5/forecast",
-  GEOLOCATION: "http://api.openweathermap.org/geo/1.0/direct",
+  GEOLOCATION: "http://api.openweathermap.org/geo/1.0/direct"
 };
 
 const getDay = (dateValue) => DAY_OF_THE_WEEK[new Date(dateValue).getDay()];
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     sys: { country },
     name,
     main: { temp, temp_min, temp_max },
-    weather: [{ description, icon }],
+    weather: [{ description, icon }]
   }) => {
     cityNamesection = document.createElement("section");
     cityNamesection.className = "city-name";
