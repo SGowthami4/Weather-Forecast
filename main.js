@@ -249,8 +249,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const onSelect = (event) => {
-    console.log(event.target.value);
-    let selectedOption = document.querySelector("datalist >option");
+    // console.log(event.target.value);
+    let selectedOption = document.querySelector("datalist > option");
     if (selectedOption) {
       let result = JSON.parse(selectedOption.getAttribute("data-coords"));
       if (result) {
